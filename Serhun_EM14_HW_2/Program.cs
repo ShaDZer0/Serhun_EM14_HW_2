@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 
 namespace Serhun_EM14_HW_2
@@ -133,9 +134,8 @@ namespace Serhun_EM14_HW_2
             /*
             try
             {
-                int n = 10, min = 100, max = 900;
+                int n = 100, min = 100, max = 900;
                 int[] array =fillArray(r, n, min, max);
-                int[] sort = new int[n];
                 Console.WriteLine("Array: ");
                 printArray(array, n);
                 sortArray(array, '>');
@@ -159,13 +159,20 @@ namespace Serhun_EM14_HW_2
                 text = Console.ReadLine();
                 Console.Write("Display zero values?(- or +): ");
                 string display = Console.ReadLine();
-                if (display == "-")
-                    show = false;
-                else if(display == "+")
-                    show = true;
-                else
+                switch (display)
                 {
-                    errorMessage("Error! Invalid input");
+                    case ("-"):{
+                        show = false;
+                        break;
+                    }
+                    case ("+"):{
+                        show = true;
+                        break;
+                    }
+                    default:{
+                        errorMessage("Error! Invalid input");
+                        break;
+                    }
                 }
                     for (int i = 0; i < text.Length - 1; i++)
                     {
@@ -211,7 +218,7 @@ namespace Serhun_EM14_HW_2
                     index = i;
                 }
             }
-            Console.WriteLine("Max sum of subarray of 3 elements: " + result + " = " + array[index] + " + " + array[index + 1] + " + " + array[index + 2]);
+            Console.WriteLine("Max sum of subarray of 3 elements: " + result + " = " + array[index] + " + " + array[index+1] + " + " + array[index+2]);
             */
         }
     }
